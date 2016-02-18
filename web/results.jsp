@@ -19,7 +19,7 @@
         double postTaxPay, netPay,regularPay, regularHours = 0;
         double otHours = 0;
         double otPayRate = 0; 
-        
+          
         
         
                 if (hoursWorked > 40)
@@ -60,9 +60,9 @@
     %>
     
     <body>
-    <div class="form">  
+     <div class="form">
         
-        <h1>User Information</h1>
+        <h1 align="Center">User Information</h1>
         
         <table border="1" align="center">
             <tbody>
@@ -124,9 +124,9 @@
                     </tr> 
             </tbody>   
         </table>
-    </div>  
+    
                     
-                    <p>  Click here (<a href="index.jsp" title="navigate to main page in same directory">Salary Calculator</a>) to navigate back to my homepage.  </p>   
-                    
+                    <p align="center"> Click here (<a href="index.jsp" title="navigate to main page in same directory">Salary Calculator</a>) to navigate back to my homepage.  </p>   
+     </div>             
     </body>
 </html>
