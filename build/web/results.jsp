@@ -4,10 +4,8 @@
 <html>
     <head> 
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link href="stylesheet.css" media="screen" rel="stylesheet" type="text/css" />   
-      
-        
         <title>User Information</title>
+        <link rel="stylesheet" href="css/styles.css" type="text/css" />   
     </head>
     
     <% 
@@ -62,73 +60,73 @@
     %>
     
     <body>
+    <div class="form">  
+        
         <h1>User Information</h1>
         
-        <table border="1">
+        <table border="1" align="center">
             <tbody>
-                <tr>
-                    <td>Total Hours Worked:</td>
-                    <td><%= hoursWorked %></td>
-                </tr>
-                
-                   <tr>
-                    <td>Hourly Rate:</td>
-                    <td><%= payRate %></td>
-                </tr>
-                
-                <tr>
-                    <td># Hours Overtime:</td>
-                    <td><%= otHours %></td>
-                </tr>
-                
-                
-                <tr>
-                    <td>Overtime Hourly Rate:</td>
-                    <td><%= otPayRate %></td>
-                </tr>
-                
-                <tr>
-                    <td>Gross Pay:</td>
-                      <td><%= grossPay %></td>
-                </tr>
-                
-                 <tr>
-                    <td>Pre-tax Deduct:</td>
-                      <td><%= preTaxDeduct %></td>
-                </tr>
-                
-                
-                <tr>
-                    <td>Pre-tax Pay:</td>
-                    <td><%= grossPay %></td>
-                </tr>
-                
-                 <tr>
-                    <td>Tax Amount:</td>
-                    <td><%= taxAmount %></td>
-                 </tr>
-                            
-                <tr>
-                    <td>Post-tax Pay:</td>
-                    <td><%= postTaxPay %></td>
-                </tr>
-                
-                <tr>
-                    <td>Post-tax Deduct:</td>
-                    <td><%= postTaxDeduct %></td>
-                </tr>
-                        
-                <tr>
-                    <td>Net Pay:</td>
-                    <td><%= netPay %></td>       
-                </tr>
-                
-            </tbody>
-            
-            
-            
+                    <tr>
+                        <td>Total Hours Worked:</td>
+                        <td><%= hoursWorked %></td>
+                    </tr>
+
+                       <tr>
+                        <td>Hourly Rate:</td>
+                        <td><%= payRate %></td>
+                    </tr>
+
+                    <tr>
+                        <td># Hours Overtime:</td>
+                        <td><%= otHours %></td>
+                    </tr>
+
+
+                    <tr>
+                        <td>Overtime Hourly Rate:</td>
+                        <td><%= otPayRate %></td>
+                    </tr>
+
+                    <tr>
+                        <td>Gross Pay:</td>
+                          <td><%= grossPay %></td>
+                    </tr>
+
+                     <tr>
+                        <td>Pre-tax Deduct:</td>
+                          <td><%= preTaxDeduct %></td>
+                    </tr>
+
+
+                    <tr>
+                        <td>Pre-tax Pay:</td>
+                        <td><%= grossPay %></td>
+                    </tr>
+
+                     <tr>
+                        <td>Tax Amount:</td>
+                        <td><%= taxAmount %></td>
+                     </tr>
+
+                    <tr>
+                        <td>Post-tax Pay:</td>
+                        <td><%= postTaxPay %></td>
+                    </tr>
+
+                    <tr>
+                        <td>Post-tax Deduct:</td>
+                        <td><%= postTaxDeduct %></td>
+                    </tr>
+
+                    <tr>
+                        <td>Net Pay:</td>
+                        <td><%= netPay %></td>       
+                    </tr> 
+            </tbody>   
         </table>
-        
-      
+    </div>  
+                    
+                    <p>  Click here (<a href="index.jsp" title="navigate to main page in same directory">Salary Calculator</a>) to navigate back to my homepage.  </p>   
+                    
     </body>
 </html>
