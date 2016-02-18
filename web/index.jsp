@@ -5,12 +5,14 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link href="stylesheet.css" media="screen" rel="stylesheet" type="text/css" /> 
+        
         <title>Salary Calculation</title>
     </head>
     <body>
         <h1>Simple Salary Calculator</h1>
         
-    
+    <div class="salaryForm">
         <form name="Salary Form" action="results.jsp" method="post"> 
             <table>
                 <tbody>
@@ -27,38 +29,22 @@
                     
                     <tr>
                         <td>Pre-tax Deduct: </td>
-                        <td><input type="email" name="preTaxDeduct" value="" size="50"></td> 
+                        <td><input type="text" name="preTaxDeduct" value="" size="50"></td> 
                     </tr>
                      
                     <tr>
                         <td>Post-tax Deduct:</td>
                         <td><input type="text" name="postTaxDeduct" value="" size="50" required></td> 
                     </tr>
-               
-                     <tr>
-                        <td>Gender: </td>
-                        <td>
-                            <input type="radio" name="Gender" value="Male">Male
-                            <input type="radio" name="Gender" value="Female">Female
-                        </td> 
-                    </tr>
-             
+                   
                             <tr>
                                 <td>&nbsp;</td> <td>&nbsp;</td>
                             </tr>
                     
                 </tbody>
             </table>
-            
-            <br><br>
-            
-            <fieldset>
-                <legend>What pets do you have?</legend>
-                <input type ="checkbox" name="pet" value="cat">Cat
-                 <input type ="checkbox" name="pet" value="dog">Dog
-                 <input type ="checkbox" name="pet" value="fish">Fish
-            </fieldset>
-            
+    
+               
             <br><br>
         
             <input type="reset" value="Clear" id="clear"> 
@@ -66,6 +52,7 @@
             
         </form>
         
+      </div>
         
         
         

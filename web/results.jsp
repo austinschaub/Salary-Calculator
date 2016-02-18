@@ -2,20 +2,62 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-    <head>
+    <head> 
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link href="stylesheet.css" media="screen" rel="stylesheet" type="text/css" />   
+      
+        
         <title>User Information</title>
     </head>
     
     <% 
-        String firstName = request.getParameter("First");
-        String lastName = request.getParameter("Last");
-        String email = request.getParameter("Email");  
-        int age = Integer.parseInt(request.getParameter("Age"));
-        int agePlusOne = age + 1;
-        String gender = request.getParameter("Gender");  
-        String state = request.getParameter("State");
+        int hoursWorked = Integer.parseInt(request.getParameter("hoursWorked"));
+        int payRate = Integer.parseInt(request.getParameter("payRate"));
+        int preTaxDeduct = Integer.parseInt(request.getParameter("preTaxDeduct"));
+        int postTaxDeduct = Integer.parseInt(request.getParameter("postTaxDeduct"));
         
+        double taxablePay = 0;
+        double taxAmount, otPay, grossPay = 0;
+        double postTaxPay, netPay,regularPay, regularHours = 0;
+        double otHours = 0;
+        double otPayRate = 0; 
+        
+        
+        
+                if (hoursWorked > 40)
+        {
+            regularHours = 40;
+            otHours = hoursWorked - 40;
+            otPayRate = payRate * 1.5;
+            otPay = otHours * otPayRate;
+            regularPay = regularHours * payRate;
+            grossPay = regularPay + otPay;
+        }
+        
+            else 
+            {
+                grossPay = hoursWorked * payRate;
+            }
+           
+        
+        taxablePay = grossPay - preTaxDeduct;
+       
+                    
+        if (grossPay < 500)
+        {
+            taxAmount = taxablePay * 0.18;
+        }
+        else 
+        {
+            taxAmount = taxablePay * 0.22;
+        }
+        
+        
+        postTaxPay = taxablePay - taxAmount;
+        netPay = postTaxPay - postTaxDeduct;
+
+
+
 
     %>
     
@@ -25,83 +67,60 @@
         <table border="1">
             <tbody>
                 <tr>
-                    <td>First Name:</td>
-                    <td><%= firstName %></td>
+                    <td>Total Hours Worked:</td>
+                    <td><%= hoursWorked %></td>
                 </tr>
                 
                    <tr>
-                    <td>Last Name:</td>
-                    <td><%= lastName %></td>
+                    <td>Hourly Rate:</td>
+                    <td><%= payRate %></td>
                 </tr>
                 
                 <tr>
-                    <td>Email:</td>
-                    <td><%= email %></td>
+                    <td># Hours Overtime:</td>
+                    <td><%= otHours %></td>
                 </tr>
                 
                 
                 <tr>
-                    <td>User Age:</td>
-                    <td><%= age %></td>
+                    <td>Overtime Hourly Rate:</td>
+                    <td><%= otPayRate %></td>
                 </tr>
                 
                 <tr>
-                    <td>Your Age in one year!</td>
-                      <td><%= agePlusOne %></td>
+                    <td>Gross Pay:</td>
+                      <td><%= grossPay %></td>
                 </tr>
                 
                  <tr>
-                    <td>Gender:</td>
-                      <td><%= gender %></td>
+                    <td>Pre-tax Deduct:</td>
+                      <td><%= preTaxDeduct %></td>
                 </tr>
                 
                 
                 <tr>
-                    <td>State:</td>
-                    <td><%= state %></td>
+                    <td>Pre-tax Pay:</td>
+                    <td><%= grossPay %></td>
                 </tr>
                 
                  <tr>
-                    <td>This class:</td>
-                        <td><%
-                                String[] eval;
-
-                                    eval = request.getParameterValues("eval");
-
-                                    if (eval != null)
-                                    {    
-                                        for (int i=0; i<eval.length; i++)
-                                        {
-                                            out.println(" " + eval[i] + " ");
-                                        }
-                                    }
-                                    else
-                                        out.println("none");
-
-                            %></td>
-                        
-                        
-                        <tr>
+                    <td>Tax Amount:</td>
+                    <td><%= taxAmount %></td>
+                 </tr>
                             
-                    <td>Pets:</td>
-                        <td><%
-                                String[] myPets;
-
-                                    myPets = request.getParameterValues("pet");
-
-                                    if (myPets != null)
-                                    {    
-                                        for (int i=0; i<myPets.length; i++)
-                                        {
-                                            out.println(" " + myPets[i] + " ");
-                                        }
-                                    }
-                                    else
-                                        out.println("none");
-
-                            %></td> 
+                <tr>
+                    <td>Post-tax Pay:</td>
+                    <td><%= postTaxPay %></td>
+                </tr>
+                
+                <tr>
+                    <td>Post-tax Deduct:</td>
+                    <td><%= postTaxDeduct %></td>
+                </tr>
                         
-                        
+                <tr>
+                    <td>Net Pay:</td>
+                    <td><%= netPay %></td>       
                 </tr>
                 
             </tbody>
